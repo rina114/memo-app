@@ -93,8 +93,8 @@ export const MemoApp = () => {
             <ul>
                 {memos.map((memo) => (
                     <div className="flex w-full border border-gray-300 max-w-sm overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800" key={memo.id}>
-                        <div className="px-4 py-2 -mx-3">
-                            <div className="mx-3">
+                        <div className="px-4 py-2 -mx-3" key={memo.id}>
+                            <div className="mx-3" key={memo.id}>
                                 <li key={memo.id}>
                                     <input
                                         type="text"
