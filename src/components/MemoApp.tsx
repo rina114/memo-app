@@ -75,38 +75,27 @@ export const MemoApp = () => {
             <h1 className="text-xl font-bold text-green-400">Memo App</h1>
             {user && (
                 <>
-                    <div className="flex w-full border border-gray-300 max-w-sm overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
+                    <input
+                        type="text"
+                        value={newMemo}
+                        onChange={(e) => setNewMemo(e.target.value)}
+                        placeholder="Enter new memo"
+                    />
+                    <button onClick={addMemo}>追加</button>
 
-                        <div className="px-4 py-2 -mx-3">
-                            <div className="mx-3">
-                                <input
-                                    type="text"
-                                    value={newMemo}
-                                    onChange={(e) => setNewMemo(e.target.value)}
-                                    placeholder="Enter new memo"
-                                />
-                                <button onClick={addMemo}>追加</button>
-                            </div>
-                        </div>
-                    </div>
                 </>
             )}
             <ul>
                 {memos.map((memo) => (
-                    <div key={memo.id} className="flex w-full border border-gray-300 max-w-sm overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
-                        <div className="px-4 py-2 -mx-3" >
-                            <div className="mx-3" >
-                                <li key={memo.id}>
-                                    <input
-                                        type="text"
-                                        value={memo.content}
-                                        onChange={(e) => updateMemo(memo.id, e.target.value)}
-                                    />
-                                    <button onClick={() => deleteMemo(memo.id)}>削除</button>
-                                </li>
-                            </div>
-                        </div>
-                    </div>
+                    <li key={memo.id}>
+                        <input
+                            type="text"
+                            value={memo.content}
+                            onChange={(e) => updateMemo(memo.id, e.target.value)}
+                        />
+                        <button onClick={() => deleteMemo(memo.id)}>削除</button>
+                    </li>
+
                 ))}
             </ul>
         </div>
